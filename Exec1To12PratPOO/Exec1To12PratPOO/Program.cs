@@ -19,6 +19,10 @@ public class EstudantInf //Create class EstudantInf
     {
         return Math.Round((Teste1 + Teste2) / 2, 0, MidpointRounding.AwayFromZero);
     }
+    public string LerNome() // Metodo leito do name 
+    {
+        return Nome;
+    }
 }
 
 
@@ -29,7 +33,8 @@ namespace Exe1To12PratPOO
         static void Main(string[] args)
         {
             EstudantInf A = new EstudantInf("Dionisio", 5, 5); // Instance of new student object 
-            Console.WriteLine("Classificacao final = " + A.ClassFinal()); // Print de final classification of the student 
+            Console.WriteLine("{0,-20} {1,-10}","Aluno","Classificacao final"); 
+            Console.WriteLine("{0,-20} {1,8}", A.LerNome(), A.ClassFinal()); //Impressao do nome do aluno e a resopectiva classificacao final 
             Console.ReadKey();
         }
     }

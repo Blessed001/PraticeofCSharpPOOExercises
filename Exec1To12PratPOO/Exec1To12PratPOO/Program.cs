@@ -28,6 +28,9 @@ namespace Exe1To12PratPOO
     {
         static void Main(string[] args)
         {
+            EstudantInf A = new EstudantInf("Dionisio", 5, 5); // Instance of new student object 
+            Console.WriteLine("Classificacao final = " + A.ClassFinal()); // Print de final classification of the student 
+            Console.ReadKey();
         }
     }
 }

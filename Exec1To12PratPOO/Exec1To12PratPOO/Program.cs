@@ -40,6 +40,18 @@ public class EstudantInf //Create class EstudantInf
     {
         return Math.Round(SomatorioCL / Nalunos, 2, System.MidpointRounding.AwayFromZero);
     }
+    private static int Npositivas = 0;
+    public void IncPositivas()//Conta positivas
+    {
+        if(Teste1 >= 10 || Teste2 >= 10)
+        {
+            Npositivas++;
+        }
+    }
+    public static int LerPositivas()//Le positivas
+    {
+        return Npositivas;
+    }
     public string SituacaoDoAluno()//Calcula a situacao do aluno
     {
         string Sit;
@@ -101,12 +113,10 @@ namespace Exe1To12PratPOO
                 A[i].Pteste1 = Convert.ToInt16(Console.ReadLine());
                 Console.Write("Nota teste 2 ? ");
                 A[i].Pteste2 = Convert.ToInt16(Console.ReadLine());
-                A[i].Somanota();
+                A[i].IncPositivas();
             }
-            Console.WriteLine("Classif. media da turma = "+EstudantInf.CalcMedia());
+            Console.WriteLine("{0} Os alunos tiveram positivas pelo menos num dos tesstes", EstudantInf.LerPositivas());
             Console.ReadKey();
-
-
         }
     }
 }

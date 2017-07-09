@@ -30,18 +30,21 @@ public class EstudantInf //Create class EstudantInf
         return Nome;
     }
 
-    //Construtores de acesso 
-    public void EscreverNome(string n)
+    //Propriedades de leitura e atribuicao 
+    public string Pnome
     {
-        Nome = n;
+        get { return Nome; }
+        set { Nome = value; }
     }
-    public void EscreverTeste1(int t1)
+    public double Pteste1
     {
-        Teste1 = t1;
+        get { return Teste1; }
+        set { Teste1 = value; }
     }
-    public void EscreverTeste2(int t2)
+    public double Pteste2
     {
-        Teste2 = t2; 
+        get { return Teste2; }
+        set { Teste2 = value; }
     }
     public void Impressao()//Metodo de impressao
     {
@@ -65,17 +68,17 @@ namespace Exe1To12PratPOO
             {
                 A[i] = new EstudantInf();
                 Console.Write("Qual e nome do aluno ? ");
-                A[i].EscreverNome(Console.ReadLine());
+                A[i].Pnome = Console.ReadLine();
                 Console.Write("Nota teste 1 ? ");
-                A[i].EscreverTeste1(Convert.ToInt16(Console.ReadLine()));
+                A[i].Pteste1 = Convert.ToInt16(Console.ReadLine());
                 Console.Write("Nota teste 2 ? ");
-                A[i].EscreverTeste2(Convert.ToInt16(Console.ReadLine()));
+                A[i].Pteste2 = Convert.ToInt16(Console.ReadLine());
             }
             Console.Clear();
-            Console.WriteLine("{0,-20} {1,-10}", "Aluno", "Classificacao");
+            Console.WriteLine("{0,-20} {1,-8} {2,-8} {3,-10}", "Aluno", "Teste1", "Teste2", "Classificacao");
             for (i = 0; i <= N - 1; i++) //Ciclo de impressao de alunos e classificao final 
             {
-                Console.WriteLine("{0,-20} {1,8}", A[i].LerNome(), A[i].ClassFinal());
+                Console.WriteLine("{0,-10} {1,12} {2,8} {3,14}", A[i].Pnome, A[i].Pteste1, A[i].Pteste2, A[i].ClassFinal());
             }
             Console.ReadKey();
 

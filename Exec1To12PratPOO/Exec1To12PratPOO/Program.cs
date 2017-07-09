@@ -29,7 +29,24 @@ public class EstudantInf //Create class EstudantInf
     {
         return Nome;
     }
-
+    public string SituacaoDoAluno()//Calcula a situacao do aluno
+    {
+        string Sit;
+        double CF = ClassFinal();
+        if (CF >= 10)
+        {
+            Sit = "Aprovado";
+        }
+        else if (CF >= 8)
+        {
+            Sit = "Oral";
+        }
+        else
+        {
+            Sit = "Reprovado";
+        }
+        return Sit;
+    }
     //Propriedades de leitura e atribuicao 
     public string Pnome
     {
@@ -75,10 +92,14 @@ namespace Exe1To12PratPOO
                 A[i].Pteste2 = Convert.ToInt16(Console.ReadLine());
             }
             Console.Clear();
-            Console.WriteLine("{0,-20} {1,-8} {2,-8} {3,-10}", "Aluno", "Teste1", "Teste2", "Classificacao");
+            Console.WriteLine("{0,-10}", "Aluno");
             for (i = 0; i <= N - 1; i++) //Ciclo de impressao de alunos e classificao final 
             {
-                Console.WriteLine("{0,-10} {1,12} {2,8} {3,14}", A[i].Pnome, A[i].Pteste1, A[i].Pteste2, A[i].ClassFinal());
+                if(A[i].SituacaoDoAluno() == "Aprovado")
+                {
+                    Console.WriteLine("{0,-10}", A[i].Pnome);
+                }
+               
             }
             Console.ReadKey();
 

@@ -29,6 +29,17 @@ public class EstudantInf //Create class EstudantInf
     {
         return Nome;
     }
+    private static double SomatorioCL = 0;
+    private static int Nalunos =0 ;
+    public void Somanota()//Soma classificacao final
+    {
+        SomatorioCL += ClassFinal();
+        Nalunos++;
+    }
+    public static double CalcMedia()//Calcula media da turma
+    {
+        return Math.Round(SomatorioCL / Nalunos, 2, System.MidpointRounding.AwayFromZero);
+    }
     public string SituacaoDoAluno()//Calcula a situacao do aluno
     {
         string Sit;
@@ -90,17 +101,9 @@ namespace Exe1To12PratPOO
                 A[i].Pteste1 = Convert.ToInt16(Console.ReadLine());
                 Console.Write("Nota teste 2 ? ");
                 A[i].Pteste2 = Convert.ToInt16(Console.ReadLine());
+                A[i].Somanota();
             }
-            Console.Clear();
-            Console.WriteLine("{0,-10}", "Aluno");
-            for (i = 0; i <= N - 1; i++) //Ciclo de impressao de alunos e classificao final 
-            {
-                if(A[i].SituacaoDoAluno() == "Aprovado")
-                {
-                    Console.WriteLine("{0,-10}", A[i].Pnome);
-                }
-               
-            }
+            Console.WriteLine("Classif. media da turma = "+EstudantInf.CalcMedia());
             Console.ReadKey();
 
 

@@ -47,7 +47,6 @@ public class EstudantInf //Create class EstudantInf
     {
         Console.WriteLine("{0,-20} {1,-8} {2,-8} {3,-10}", "Aluno", "Teste1", "Teste2", "Classificacao");
         Console.WriteLine("{0,-10} {1,12} {2,8} {3,14}", Nome, Teste1, Teste2, ClassFinal());
-        Console.ReadKey();
     }
 }
 
@@ -58,9 +57,29 @@ namespace Exe1To12PratPOO
     {
         static void Main(string[] args)
         {
-            EstudantInf A = new EstudantInf("Dionisio",5,5); // Instance of new student object 
-            A.Impressao();
-            
+            int N, i;
+            Console.Write("Numero de Alunos ? ");
+            N = Convert.ToInt16(Console.ReadLine());
+            EstudantInf[] A = new EstudantInf[N]; //Vector de objectos do alunos
+            for(i = 0; i<=N-1;i++) //Ciclo de insersao de aluno e respectivas notas
+            {
+                A[i] = new EstudantInf();
+                Console.Write("Qual e nome do aluno ? ");
+                A[i].EscreverNome(Console.ReadLine());
+                Console.Write("Nota teste 1 ? ");
+                A[i].EscreverTeste1(Convert.ToInt16(Console.ReadLine()));
+                Console.Write("Nota teste 2 ? ");
+                A[i].EscreverTeste2(Convert.ToInt16(Console.ReadLine()));
+            }
+            Console.Clear();
+            Console.WriteLine("{0,-20} {1,-10}", "Aluno", "Classificacao");
+            for (i = 0; i <= N - 1; i++) //Ciclo de impressao de alunos e classificao final 
+            {
+                Console.WriteLine("{0,-20} {1,8}", A[i].LerNome(), A[i].ClassFinal());
+            }
+            Console.ReadKey();
+
+
         }
     }
 }
